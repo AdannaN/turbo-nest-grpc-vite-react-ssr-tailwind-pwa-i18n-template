@@ -9,12 +9,30 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [EmployeesModule, PatientsModule, ClinicsModule, PharmaciesModule, AuthModule, UsersModule,
+  imports: [
+    EmployeesModule,
+    PatientsModule,
+    ClinicsModule,
+    PharmaciesModule,
+    AuthModule,
+    UsersModule,
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      password: 'root',
+      database: 'hms',
+      synchronize: true,
+      autoLoadEntities: true,
+    }),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '../../..', 'users-demo-frontend', 'dist'), 
-    }),],
+      rootPath: join(__dirname, '../../..', 'users-demo-frontend', 'dist'),
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
