@@ -19,16 +19,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     PharmaciesModule,
     AuthModule,
     UsersModule,
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'root',
-      database: 'hms',
-      synchronize: true,
-      autoLoadEntities: true,
-    }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '../../..', 'users-demo-frontend', 'dist'),
     }),
