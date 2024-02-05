@@ -51,7 +51,7 @@ export class UsersService{
     //   firstName: createUserDto.firstName,
     //   lastName: createUserDto.lastName,
     //   backupEmailAddress: '',
-    //   phone: '',
+    //   phone: {},
     //   isPrimaryEmailAddressVerified: false,
     //   isBackupEmailAddressVerified: false,
     //   passwordHash: randomUUID()
@@ -60,7 +60,7 @@ export class UsersService{
 
     const userProps: UserProps = {
       ...theuser,
-      phone: '',
+      phone: {},
       isPrimaryEmailAddressVerified: false,
       isBackupEmailAddressVerified: false,
     };
@@ -74,7 +74,7 @@ export class UsersService{
     const userProps: UserProps[] = users.map((user) => ({
       ...user,
       
-      phone: '',
+      phone: {},
       isPrimaryEmailAddressVerified: false,
       isBackupEmailAddressVerified: false,
     }));
@@ -89,7 +89,7 @@ async findOne(id: string): Promise<UserProps> {
   const userProps: UserProps = {
     ...user,
     
-    phone: '',
+    phone: {},
     isPrimaryEmailAddressVerified: false,
     isBackupEmailAddressVerified: false,
   };
@@ -126,7 +126,7 @@ async findOne(id: string): Promise<UserProps> {
 
     const userProps: UserProps = {
       ...newUser,
-      phone: '',
+      phone: {},
       isPrimaryEmailAddressVerified: false,
       isBackupEmailAddressVerified: false,
     };
@@ -145,10 +145,9 @@ async remove(id: string): Promise<UserProps> {
     throw new NotFoundException(`User not found by id ${id}`);
   }
   const removedUser = await this.userRepository.remove(user);
-
   const userProps: UserProps = {
     ...removedUser,
-    phone: '',
+    phone: {},
     isPrimaryEmailAddressVerified: false,
     isBackupEmailAddressVerified: false,
   };
@@ -204,7 +203,7 @@ queryUsers(
 
     const userProps: UserProps = {
       ...user,
-      phone: '',
+      phone: {},
       isPrimaryEmailAddressVerified: false,
       isBackupEmailAddressVerified: false,
     };
