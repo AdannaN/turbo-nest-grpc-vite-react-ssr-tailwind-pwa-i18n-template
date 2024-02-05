@@ -23,12 +23,12 @@ export class User {
   @Column()
   backupEmailAddress: string;
 
-  @Column({ nullable: true })
-  phone: string| undefined;
+  @Column("json", { nullable: true })
+  phone: object | null;
 
   @Column({ default: false })
-  isPrimaryEmailAddressVerified:boolean;
+  isPrimaryEmailAddressVerified: boolean;
 
   @Column({ default: false })
-  isBackupEmailAddressVerified:boolean;
+  isBackupEmailAddressVerified: boolean;
 }
