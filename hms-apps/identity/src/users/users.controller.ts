@@ -11,32 +11,32 @@ import { Observable } from 'rxjs';
 export class UsersController implements UsersServiceController {
   constructor(private readonly usersService: UsersService) {}
 
-  createUser(createUserDto: CreateUserDto) {
-    return this.usersService.create(createUserDto);
+  async createUser(createUserDto: CreateUserDto) {
+    return await  this.usersService.create(createUserDto);
   }
 
-  findAllUsers() {
-    return this.usersService.findAll();
+  async findAllUsers() {
+    return await this.usersService.findAll();
   }
 
-  findOneUser(findOneUserDto: FindOneUserDto) {
-    return this.usersService.findOne(findOneUserDto.id);
+  async findOneUser(findOneUserDto: FindOneUserDto) {
+    return await  this.usersService.findOne(findOneUserDto.id);
   }
 
-  updateUser(updateUserDto: UpdateUserDto) {
-    return this.usersService.update(updateUserDto.id, updateUserDto);
+  async updateUser(updateUserDto: UpdateUserDto) {
+    return await this.usersService.update(updateUserDto.id, updateUserDto);
   }
 
-  removeUser(findOneUserDto: FindOneUserDto) {
-    return this.usersService.remove(findOneUserDto.id);
+  async removeUser(findOneUserDto: FindOneUserDto) {
+    return await this.usersService.remove(findOneUserDto.id);
   }
 
   queryUsers(paginationDtoStream: Observable<PaginationDto>) {
-    return this.usersService.queryUsers(paginationDtoStream);
+    return  this.usersService.queryUsers(paginationDtoStream);
       
   }
 
-  findOneUserByPrimaryEmailAddress(findOneUserByPrimaryEmailAddressDto: FindOneUserByPrimaryEmailAddressDto){
-    return this.usersService.findOneUserByPrimaryEmailAddress(findOneUserByPrimaryEmailAddressDto.primaryEmailAddress);
+  async findOneUserByPrimaryEmailAddress(findOneUserByPrimaryEmailAddressDto: FindOneUserByPrimaryEmailAddressDto){
+    return await this.usersService.findOneUserByPrimaryEmailAddress(findOneUserByPrimaryEmailAddressDto.primaryEmailAddress);
   }
 }
